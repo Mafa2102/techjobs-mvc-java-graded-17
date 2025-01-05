@@ -12,6 +12,63 @@
 
   <!-- TODO #1 - Use a loop to display job results in a table. -->
 
+
+<!--    <table th:fragment="job-list" th:each="job : ${jobs}" class="job-listing">-->
+<!--      <tbody>-->
+<!--      <tr>-->
+<!--        <td>-->
+<!--          <p th:text="'ID: ' + ${job.getId}"></p>-->
+<!--          <p th:text="'Name: ' + ${job.getName}"></p>-->
+<!--          <p th:text="'Employer: ' + ${job.getEmployer}"></p>-->
+<!--          <p th:text="'Location: ' + ${job.getLocation}"></p>-->
+<!--          <p th:text="'Position Type: ' + ${job.getPositionType}"></p>-->
+<!--          <p th:text="'Skill: ' + ${job.getCoreCompetency}"></p>-->
+<!--        </td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+
+  <table th:fragment="job-list"  th:each="job : ${jobs}" class="job-listing">
+    <tr>
+      <td th:text="${#strings.capitalizeWords('Id')}">ID</td>
+      <td>
+        <a style="font-style: italic; color: blue" th:href="@{/list/jobs(column=all)}" th:text="${job.id}"></a>
+      </td>
+    </tr>
+    <tr>
+      <td th:text="${#strings.capitalizeWords('Name')}">Name</td>
+      <td style="font-style: italic" th:text="${job.name}"></td>
+    </tr>
+    <tr>
+      <td th:text="${#strings.capitalizeWords('Employer')}">Employer</td>
+      <td>
+        <a style="font-style: italic" th:href="@{/list/jobs(column=employer,value=${job.employer})}" th:text="${job.employer}"></a>
+      </td>
+    </tr>
+    <tr>
+      <td th:text="${#strings.capitalizeWords('Location')}">Location</td>
+      <td>
+        <a style="font-style: italic" th:href="@{/list/jobs(column=location,value=${job.location})}" th:text="${job.location}"></a>
+      </td>
+    </tr>
+    <tr>
+      <td th:text="${#strings.capitalizeWords('Position Type')}">Position Type</td>
+      <td>
+        <a style="font-style: italic" th:href="@{/list/jobs(column=positionType,value=${job.positionType})}" th:text="${job.positionType}"></a>
+      </td>
+    </tr>
+    <tr>
+      <td th:text="${#strings.capitalizeWords('Skill')}">Skill</td>
+      <td>
+        <a style="font-style: italic" th:href="@{/list/jobs(column=coreCompetency,value=${job.coreCompetency})}" th:text="${job.coreCompetency}"></a>
+      </td>
+    </tr>
+
+
+
+  </table>
+
+
 </div>
 
 </body>
