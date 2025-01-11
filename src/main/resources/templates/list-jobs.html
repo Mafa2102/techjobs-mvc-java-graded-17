@@ -27,12 +27,12 @@
 <!--      </tr>-->
 <!--      </tbody>-->
 <!--    </table>-->
-
+ <th:block>
   <table th:fragment="job-list"  th:each="job : ${jobs}" class="job-listing">
     <tr>
       <td th:text="${#strings.capitalizeWords('Id')}">ID</td>
       <td>
-        <a style="font-style: italic; color: blue" th:href="@{/list/jobs(column=all)}" th:text="${job.id}"></a>
+        <a style="font-style: italic; color: blue" th:href="@{/list/jobs(column=id, value=${job.id})}" th:text="${job.id}"></a>
       </td>
     </tr>
     <tr>
@@ -64,10 +64,8 @@
       </td>
     </tr>
 
-
-
   </table>
-
+ </th:block>
 
 </div>
 
